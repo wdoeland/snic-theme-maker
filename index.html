@@ -11,12 +11,23 @@
     <title>Snic Thema Hulp</title>
   </head>
   <body>
-    <button id="theme-button"><h1>Help, what theme should the next SNIC have??</h1></button>
+      <div class="container">
+          <div class="container text-center">
+            <button id="theme-button"><h1>Help, what should the next SNIC theme be??</h1></button>
+          </div>
 
-    <div id="snic-theme-box" hidden>
-        <h2>The new SNIC theme will be:</h2>
-        <h1 id="theme-text"></h1>
-    </div>
+        <div class="container">
+            <figure class="text-center" id="snic-theme-box" hidden>
+                <figcaption class="blockquote-header">
+                    The next SNIC theme will be</cite>
+                </figcaption>
+                <blockquote class="blockquote">
+                    <h1 class="text-center display-1" id="theme-text"></h1>
+                </blockquote>
+            </figure>
+        </div>
+      </div>
+    
 
     <!-- this was included in the bootstrap template but I still think it's pretty funny that it says 'popper' -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -28,19 +39,20 @@
 
         function updateTheme()
         {
-            // get random line
+            // select random line
             var randomLine;
             var split = list.split('\n');
-            randomLine = split[Math.floor(Math.random * split.length)];
-
+            randomLine = split[Math.floor(Math.random() * split.length)];
+            // snicify IT
+            var snicTheme = randomLine.slice(0, randomLine.length-3) + "IT";
             // update html
-            console.log("Random theme\n" + randomLine);
-            document.getElementById('theme-text').textContent = randomLine;
+            console.log("New snic theme: " + snicTheme);
+            document.getElementById('theme-text').textContent = snicTheme;
             document.getElementById('snic-theme-box').hidden = false;
         }
 
         const list = `
-ability
+        ability
 abmodality
 abnormality
 abnormity
